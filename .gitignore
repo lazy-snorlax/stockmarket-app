@@ -1,0 +1,10 @@
+*.sln
+*.http
+
+db/data/*
+db/log/*
+db/secrets/*
+
+api/bin/*
+api/obj/*
+api/packages/*

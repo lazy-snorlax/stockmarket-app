@@ -1,0 +1,42 @@
+volumes:
+  sqlserver_data:
+
+services:
+  api:
+    container_name: stockmarket-app-api
+    build:
+      context: ./api/
+      target: dev
+    ports:
+      - 8000:80
+    volumes:
+      - ./api:/src
+    depends_on:
+      - sqlserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080'
+  sqlserver:
+    container_name: stockmarket-app-db
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      MSSQL_SA_PASSWORD: secret*12345
+      ACCEPT_EULA: Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    restart: always
+  frontend:
+    container_name: stockmarket-app-frontend
+    build:
+        context: ./react
+    ports:
+        - 8080:8080
+    env_file:
+        - ./react/.env.development
+    volumes:
+        - ./react/:/opt/app
+        # - node_modules:/opt/node_modules
+    user: node
+    tty: true
