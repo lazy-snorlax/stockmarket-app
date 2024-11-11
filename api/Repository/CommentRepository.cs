@@ -40,9 +40,15 @@ namespace api.Repository
             return await _context.Comments.FindAsync(id);
         }
 
-        public Task<Comment?> UpdateAsync(int id, UpdateCommentRequestDto dto)
+        public async Task<Comment?> UpdateAsync(int id, Comment comment)
         {
-            throw new NotImplementedException();
+            var currComment = await _context.Comments.FindAsync(id);
+            if(currComment == null) { return null; }
+            currComment.Title = comment.Title;
+            currComment.Content = comment.Content;
+
+            await _context.SaveChangesAsync();
+            return currComment;
         }
     }
 }
