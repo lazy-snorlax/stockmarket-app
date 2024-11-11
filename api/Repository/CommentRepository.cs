@@ -20,7 +20,9 @@ namespace api.Repository
 
         public async Task<Comment> CreateAsync(Comment commentModel)
         {
-            return await _context.Comments.ToListAsync();
+            await _context.Comments.AddAsync(commentModel);
+            await _context.SaveChangesAsync();
+            return commentModel;
         }
 
         public Task<Comment?> DeleteAsync(int id)
@@ -28,14 +30,14 @@ namespace api.Repository
             throw new NotImplementedException();
         }
 
-        public Task<List<Comment>> GetAllAsync()
+        public async Task<List<Comment>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Comments.ToListAsync();
         }
 
-        public Task<Comment?> GetByIdAsync(int id)
+        public async Task<Comment?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Comments.FindAsync(id);
         }
 
         public Task<Comment?> UpdateAsync(int id, UpdateCommentRequestDto dto)
