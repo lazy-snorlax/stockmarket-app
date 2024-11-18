@@ -57,7 +57,7 @@ namespace api.Controllers
 
         [HttpPost("login")]
         public async Task<IActionResult> Login (LoginDto login) {
-            // try{
+            try{
                 if (!ModelState.IsValid) { return BadRequest(ModelState); }
 
                 var user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == login.Username.ToLower());
@@ -72,9 +72,9 @@ namespace api.Controllers
                     Email = user.Email,
                     Token = _tokenService.CreateToken(user),
                 });
-            // } catch (Exception e) {
-            //     return StatusCode(500, e);
-            // }
+            } catch (Exception e) {
+                return StatusCode(500, e);
+            }
         }
     }
 }
