@@ -7,15 +7,15 @@ const Navbar = (props: Props) => {
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
-                Stock Market App
+                <Link to="/">Stock Market App</Link>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="/login">Login</Link>
                     </li>
                     <li>
-                        <Link to="/login">Login</Link>
+                        <Link to="/register">Register</Link>
                     </li>
                 </ul>
             </div>
