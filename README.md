@@ -9,7 +9,7 @@ This service will fire up on http://localhost:8080. This was generated from the 
 ## MS SQL Database setup
 This is run in its own Docker container, as SQL Server is not compatible with Ubuntu at the time of this projects creation (I cound't get it working natively, so pivoted to Docker container).
 
-This service should start on http://localhost:1433. If there are any issues with data persisting, check the volumes in the docker-compose.yml file. Same for the sa password. The database management tool used was BeeKeeper for Ubuntu.
+This service should start on http://localhost:1433. If localhost doesn't work, try the IP address used by the docker container. If there are any issues with data persisting, check the volumes in the docker-compose.yml file. Same for the sa password. The database management tool used was BeeKeeper for Ubuntu.
 
 ### Running migrations
 To run database migrations, bash into the api container using docker compose exec and run the following:
