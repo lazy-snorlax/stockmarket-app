@@ -1,7 +1,7 @@
 # Stock Market Application
 This is a stockmarket application for testing features with ASP.Net Core. This project was developed on an Ubuntu OS using Visual Studio Code and Docker containers for local development.
 
-This is from the tutorial series by Teddy Smith on Youtube. Playlist found here: https://www.youtube.com/playlist?list=PL82C6-O4XrHfrGOCPmKmwTO7M0avXyQKc
+This is from the tutorial series by Teddy Smith on Youtube. Playlist found [here](https://www.youtube.com/playlist?list=PL82C6-O4XrHfrGOCPmKmwTO7M0avXyQKc)
 
 ## Front End - React
 This service will fire up on http://localhost:8080. This was generated from the Vite init command.
