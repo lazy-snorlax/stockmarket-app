@@ -3,6 +3,7 @@ import App from '../App'
 import LoginPage from '../views/Login'
 import HomePage from '../views/Home'
 import RegisterPage from '../views/Register'
+import SearchPage from '../views/Search'
 
 
 export const router = createBrowserRouter([
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
             { path: "", element: <HomePage /> },
             { path: "login", element: <LoginPage /> },
             { path: "register", element: <RegisterPage /> },
+            { path: "search", element: <SearchPage />}
         ]
     }
 ])
