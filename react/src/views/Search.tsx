@@ -1,10 +1,12 @@
 import { useState } from "react"
 import CardList from "../components/CardList"
 import Search from "../components/Search"
+import { CompanySearch } from "../company"
+import { searchCompanies } from "../api"
 
 const SearchPage = () => {
     const [search, setSearch] = useState<string>("")
-    const [searchResult, setSearchResult] = useState([])
+    const [searchResult, setSearchResult] = useState<CompanySearch[]>([])
     const [serverError, setServerError] = useState<string | null>(null)
 
     const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -19,7 +21,12 @@ const SearchPage = () => {
     const onSearchSubmit = async (e: SyntheticEvent) => {
         e.preventDefault();
         console.log(">>> searching for: ", search)
-        setSearchResult([])
+        const result = await searchCompanies(search)
+        if (typeof result === "string") {
+            setServerError(result)
+        } else if (Array.isArray(result.data)) {
+            setSearchResult(result.data)
+        }
     };
 
     return (
