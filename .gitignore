@@ -10,3 +10,5 @@ api/obj/*
 api/packages/*
 
 .fake
+
+.env.development
