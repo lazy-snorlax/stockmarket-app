@@ -14,26 +14,26 @@ const Card: React.FC<Props> = ({
     onPortfolioCreate
 }: Props): JSX.Element => {
   return (
-    <div
-      className="flex flex-col items-center justify-between w-full p-6 bg-slate-100 rounded-lg md:flex-row"
-      key={id}
-      id={id}
-    >
-      <Link
-        to={`/company/${searchResult.symbol}/company-profile`}
-        className="font-bold text-center text-veryDarkViolet md:text-left"
-      >
-        {searchResult.name} ({searchResult.symbol})
-      </Link>
-      <p className="text-veryDarkBlue">{searchResult.currency}</p>
-      <p className="font-bold text-veryDarkBlue">
-        {searchResult.exchangeShortName} - {searchResult.stockExchange}
-      </p>
-      {/* <AddPortfolio
-        onPortfolioCreate={onPortfolioCreate}
-        symbol={searchResult.symbol}
-      /> */}
+    <div className="card bg-base-100 w-96 shadow-sm" key={id} id={id}>
+      <div className="card-body items-center text-center">
+        <h2 className="card-title">
+          <Link to={`/company/${searchResult.symbol}/company-profile`} className="font-bold text-center text-veryDarkViolet md:text-left">
+            {searchResult.name} ({searchResult.symbol})
+          </Link>
+        </h2>
+        <p className="text-veryDarkBlue">{searchResult.currency}</p>
+        <p className="font-bold text-veryDarkBlue">
+            {searchResult.exchangeShortName} - {searchResult.stockExchange}
+        </p>
+        <div className="card-actions justify-end">
+          {/* <AddPortfolio
+            onPortfolioCreate={onPortfolioCreate}
+            symbol={searchResult.symbol}
+          /> */}
+        </div>
+      </div>
     </div>
+    
   )
 }
 
