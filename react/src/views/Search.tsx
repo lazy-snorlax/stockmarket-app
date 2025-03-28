@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { SyntheticEvent, useState } from "react"
 import CardList from "../components/CardList"
 import Search from "../components/Search"
 import { CompanySearch } from "../company"
@@ -13,9 +13,9 @@ const SearchPage = () => {
         setSearch(e.target.value);
     };
 
-    const onPortfolioCreate = (e: any) => {
+    const onPortfolioCreate = (e: SyntheticEvent) => {
         e.preventDefault();
-        console.log(">>> creating portfolio")
+        console.log(">>> creating portfolio", e)
     };
 
     const onSearchSubmit = async (e: SyntheticEvent) => {

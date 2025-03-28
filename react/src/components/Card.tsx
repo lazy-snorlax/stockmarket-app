@@ -1,6 +1,7 @@
 import React, { SyntheticEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { CompanySearch } from '../company';
+import AddPortfolio from './AddPortfolio';
 
 interface Props {
     id:string;
@@ -26,10 +27,10 @@ const Card: React.FC<Props> = ({
             {searchResult.exchangeShortName} - {searchResult.stockExchange}
         </p>
         <div className="card-actions justify-end">
-          {/* <AddPortfolio
+          <AddPortfolio
             onPortfolioCreate={onPortfolioCreate}
             symbol={searchResult.symbol}
-          /> */}
+          />
         </div>
       </div>
     </div>
